@@ -1,4 +1,7 @@
-file_name_with_path <- "C:/Users/kzlc665/Desktop/collaboration-on-repository-and-data-cleanup/dirty_data.csv"
+
+library('readr')
+
+file_name_with_path <- "~/Desktop/MBA /Harrisburg/COURSE WORK/ANALY 510/Assignment7/collaboration-on-repository-and-data-cleanup/dirty_data.csv"
 
 dirty_data <- read_csv(file_name_with_path)
 
@@ -52,12 +55,17 @@ write.csv(dirty_data, file = file_name_with_path_after_step2, eol = "\n", na = "
           row.names = FALSE, fileEncoding = "")
 
 
-ize_of_dirty_data <- NROW(na.omit(dirty_data$Street))
+
+##Step 3 Remove duplicates
+
+size_of_dirty_data <- NROW(na.omit(dirty_data$Street))r
 ##check all of them are equal before looping through each row
 
 all.equal(dirty_data$Street,dirty_data$`Street 2`)
 
 dirty_data$`Street 2` <- NA
+
+file_name_with_path_after_step3 <- "~/Desktop/MBA /Harrisburg/COURSE WORK/ANALY 510/Assignment7/collaboration-on-repository-and-data-cleanup/dirty_data_after_step3.csv"
 
 
 file_name_with_path_after_step3 <- "dirty_data-after_step3"
@@ -67,8 +75,6 @@ write.csv(dirty_data, file = file_name_with_path_after_step3, eol = "\n", na = "
 #step 4
 
 dirty_data <- subset( dirty_data, select = -c(`Strange HTML`))
-
-
 
 file_name_with_path_after_step4 <- "~/Desktop/MBA /Harrisburg/COURSE WORK/ANALY 510/Assignment7/collaboration-on-repository-and-data-cleanup/final_dirty_data.csv"
 write.csv(dirty_data, file = file_name_with_path_after_step4, eol = "\n", na = "NA",
