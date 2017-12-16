@@ -63,3 +63,16 @@ dirty_data$`Street 2` <- NA
 file_name_with_path_after_step3 <- "dirty_data-after_step3"
 write.csv(dirty_data, file = file_name_with_path_after_step3, eol = "\n", na = "NA",
           row.names = FALSE, fileEncoding = "")
+
+#step 4
+
+dirty_data <- subset( dirty_data, select = -c(`Strange HTML`))
+
+
+
+file_name_with_path_after_step4 <- "~/Desktop/MBA /Harrisburg/COURSE WORK/ANALY 510/Assignment7/collaboration-on-repository-and-data-cleanup/final_dirty_data.csv"
+write.csv(dirty_data, file = file_name_with_path_after_step4, eol = "\n", na = "NA",
+          row.names = FALSE, fileEncoding = "")
+
+
+
