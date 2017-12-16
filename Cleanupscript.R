@@ -1,3 +1,4 @@
+
 library('readr')
 
 file_name_with_path <- "~/Desktop/MBA /Harrisburg/COURSE WORK/ANALY 510/Assignment7/collaboration-on-repository-and-data-cleanup/dirty_data.csv"
@@ -21,7 +22,7 @@ b <- {}
 #should return 0L as there are no NAs
 x <- sum(is.na(dirty_data$Area))
 
-file_name_with_path_after_step1 <- "~/Desktop/MBA /Harrisburg/COURSE WORK/ANALY 510/Assignment7/collaboration-on-repository-and-data-cleanup/dirty_data_after_step1.csv"
+file_name_with_path_after_step1 <- "C:/Users/kzlc665/Desktop/collaboration-on-repository-and-data-cleanup/dirty_data_after_step1.csv"
 write.csv(dirty_data, file = file_name_with_path_after_step1, eol = "\n", na = "NA",
           row.names = FALSE, fileEncoding = "")
 
@@ -49,14 +50,15 @@ dirty_data$Street <-  gsub("venue", "ve.", dirty_data$Street)
 dirty_data$`Street 2` <-  gsub("treet", "tr.", dirty_data$`Street 2`)
 dirty_data$`Street 2` <-  gsub("venue", "ve.", dirty_data$`Street 2`)
 
-file_name_with_path_after_step2 <- "~/Desktop/MBA /Harrisburg/COURSE WORK/ANALY 510/Assignment7/collaboration-on-repository-and-data-cleanup/dirty_data_after_step2.csv"
+file_name_with_path_after_step2 <- "C:/Users/kzlc665/Desktop/collaboration-on-repository-and-data-cleanup/dirty_data_after_step2.csv"
 write.csv(dirty_data, file = file_name_with_path_after_step2, eol = "\n", na = "NA",
           row.names = FALSE, fileEncoding = "")
 
 
+
 ##Step 3 Remove duplicates
 
-size_of_dirty_data <- NROW(na.omit(dirty_data$Street))
+size_of_dirty_data <- NROW(na.omit(dirty_data$Street))r
 ##check all of them are equal before looping through each row
 
 all.equal(dirty_data$Street,dirty_data$`Street 2`)
@@ -64,11 +66,14 @@ all.equal(dirty_data$Street,dirty_data$`Street 2`)
 dirty_data$`Street 2` <- NA
 
 file_name_with_path_after_step3 <- "~/Desktop/MBA /Harrisburg/COURSE WORK/ANALY 510/Assignment7/collaboration-on-repository-and-data-cleanup/dirty_data_after_step3.csv"
+
+
+file_name_with_path_after_step3 <- "dirty_data-after_step3"
 write.csv(dirty_data, file = file_name_with_path_after_step3, eol = "\n", na = "NA",
           row.names = FALSE, fileEncoding = "")
 
+#step 4
 
-##Step 4 Remove the “Strange HTML column”
 dirty_data <- subset( dirty_data, select = -c(`Strange HTML`))
 
 file_name_with_path_after_step4 <- "~/Desktop/MBA /Harrisburg/COURSE WORK/ANALY 510/Assignment7/collaboration-on-repository-and-data-cleanup/final_dirty_data.csv"
