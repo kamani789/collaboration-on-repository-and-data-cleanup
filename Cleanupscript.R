@@ -52,4 +52,14 @@ write.csv(dirty_data, file = file_name_with_path_after_step2, eol = "\n", na = "
           row.names = FALSE, fileEncoding = "")
 
 
+ize_of_dirty_data <- NROW(na.omit(dirty_data$Street))
+##check all of them are equal before looping through each row
 
+all.equal(dirty_data$Street,dirty_data$`Street 2`)
+
+dirty_data$`Street 2` <- NA
+
+
+file_name_with_path_after_step3 <- "dirty_data-after_step3"
+write.csv(dirty_data, file = file_name_with_path_after_step3, eol = "\n", na = "NA",
+          row.names = FALSE, fileEncoding = "")
